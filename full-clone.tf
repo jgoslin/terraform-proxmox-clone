@@ -10,6 +10,15 @@ resource "proxmox_vm_qemu" "test-deployment" {
    vmid = "104"
    name = "test-vm"
    desc = "Test Description"
+   
+   disk {
+    storage = "vm_data"
+    size = "32G"
+    type = "scsi"
+    ssd = 1
+    discard = "on"
+    iothread = 1
+   }
 
    # VM OS Settings
    clone = "ubuntu-server-2204"
