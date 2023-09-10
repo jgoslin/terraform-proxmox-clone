@@ -7,12 +7,12 @@ resource "proxmox_vm_qemu" "test-deployment" {
     
    # VM General Settings
    target_node = "pve1"
-   vmid = "104"
+   vmid = "8000"
    name = "test-vm"
    desc = "Test Description"
    
    disk {
-    storage = "vm_data"
+    storage = "truenas-nfs"
     size = "32G"
     type = "scsi"
     ssd = 1
@@ -21,7 +21,7 @@ resource "proxmox_vm_qemu" "test-deployment" {
    }
 
    # VM OS Settings
-   clone = "ubuntu-server-2204"
+   clone = "ubuntu-s-2204"
 
    # VM System Settings
    agent = 1
